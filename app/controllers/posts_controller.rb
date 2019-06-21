@@ -17,7 +17,7 @@ class PostsController < ApplicationController
   private
 
   def all_published_posts
-    @posts = Post.where(published: true)
+    @posts = Post.published
   end
 
   def find_post
