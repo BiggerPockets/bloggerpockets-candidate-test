@@ -5,14 +5,6 @@ class UsersController < ApplicationController
 
   def show
     @posts = @user.posts
-    respond_to do |format|
-      format.html
-      format.json { render json: {
-                                    data: {
-                                            user: @user
-                                          }
-                                  } }
-    end
   end
 
   private
