@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class PostsController < ApplicationController
+  before_action :find_post, only: [:show]
+
   def index
     @posts = Post.where(published: true)
 
@@ -9,12 +11,16 @@ class PostsController < ApplicationController
     end
   end
 
-  def show
-    @post = Post.find(params[:id])
-  end
+  def show; end
 
   def comments
     @post = Post.find(params[:id])
     @comments = @post.comments
+  end
+
+  private
+
+  def find_post
+    @post = Post.find(params[:id])
   end
 end
