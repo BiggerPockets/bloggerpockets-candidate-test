@@ -7,10 +7,6 @@ class PostsController < ApplicationController
     if params[:sort].present?
       @posts = @posts.order("created_at #{params[:sort]}")
     end
-
-    respond_to do |format|
-      format.html
-    end
   end
 
   def show
