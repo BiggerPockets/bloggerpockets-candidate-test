@@ -2,7 +2,8 @@
 
 class PostsController < ApplicationController
   def index
-    @posts = Post.where(published: true)
+    # used includes(:user) to reduce the # of queries made
+    @posts = Post.where(published: true).includes(:user)
 
     if params[:sort].present?
       @posts = @posts.order("created_at #{params[:sort]}")
