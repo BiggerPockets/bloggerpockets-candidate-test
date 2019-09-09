@@ -7,7 +7,7 @@ class PostsController < ApplicationController
     @posts = Post.includes(:user).published
 
     if params[:sort].present?
-      # used active record syntac to avoid sql injection
+      # used active record syntax to avoid sql injection
       @posts = @posts.order(created_at: params[:sort])
     end
 
