@@ -2,12 +2,14 @@
 
 class UsersController < ApplicationController
   def show
-    @user = User.find(params[:id])
+    # added .includes to avoid n+1 queries
+    @user = User.includes(:posts).find(params[:id])
     @posts = @user.posts
 
     respond_to do |format|
       format.html
-      format.json { render json: @user }
+      # used serializer to organize data returned, and hide sensitive data
+      format.json { render json: UserSerializer.new(@user).serialized_json }
     end
   end
 end

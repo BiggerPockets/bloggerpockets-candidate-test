@@ -8,6 +8,7 @@ gem "sqlite3", "~> 1.3.6"
 gem "puma", "~> 3.11"
 gem "bcrypt", "~> 3.1.7"
 gem "bootsnap", ">= 1.1.0", require: false
+gem 'fast_jsonapi'
 
 group :development do
   gem "listen", ">= 3.0.5", "< 3.2"
