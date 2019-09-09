@@ -1,11 +1,11 @@
 <h1>Comments on <%= link_to @post.title, post_path(@post) %></h1>
 
 <ol>
-<% @comments.each do |comment| %>
-<li>
-  <!-- added user path to broken comment user link -->
-<%= comment.body %><br />- <%= link_to comment.user.name, user_path(comment.user.id) %>
-</li>
-<% end %>
+  <% @comments.each do |comment| %>
+    <li>
+      <!-- added user path to broken comment user link -->
+      <%= comment.body %><br />- <%= link_to comment.user.name, user_path(comment.user.id) %>
+    </li>
+  <% end %>
 <!-- changed ul to ol -->
 </ol>
