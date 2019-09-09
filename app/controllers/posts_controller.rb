@@ -19,6 +19,7 @@ class PostsController < ApplicationController
 
   def comments
     @post = Post.find(params[:id])
-    @comments = @post.comments
+    #added .published to only post comments that have been published
+    @comments = @post.comments.published
   end
 end
