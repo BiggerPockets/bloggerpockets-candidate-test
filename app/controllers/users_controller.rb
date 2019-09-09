@@ -2,7 +2,8 @@
 
 class UsersController < ApplicationController
   def show
-    @user = User.find(params[:id])
+    # added .includes to avoid n+1 queries
+    @user = User.includes(:posts).find(params[:id])
     @posts = @user.posts
 
     respond_to do |format|
