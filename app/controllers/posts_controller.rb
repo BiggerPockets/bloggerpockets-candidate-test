@@ -7,7 +7,8 @@ class PostsController < ApplicationController
     @posts = Post.includes(:user).published
 
     if params[:sort].present?
-      @posts = @posts.order("created_at #{params[:sort]}")
+      # used active record syntac to avoid sql injection
+      @posts = @posts.order(created_at: params[:sort])
     end
 
     #removed respond_to, it was only HTML and HTML is default
