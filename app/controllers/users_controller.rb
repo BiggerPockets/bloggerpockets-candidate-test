@@ -7,7 +7,8 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.json { render json: @user }
+      # used serializer to organize data returned, and hide sensitive data
+      format.json { render json: UserSerializer.new(@user).serialized_json }
     end
   end
 end
