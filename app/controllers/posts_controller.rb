@@ -19,7 +19,8 @@ class PostsController < ApplicationController
 
   def comments
     @post = Post.find(params[:id])
-    #added .published to only post comments that have been published
-    @comments = @post.comments.published
+    # added .published to only post comments that have been published
+    # added .includes(:user) to reduce # of queries
+    @comments = @post.comments.includes(:user).published
   end
 end
