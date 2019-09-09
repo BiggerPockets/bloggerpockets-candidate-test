@@ -9,9 +9,7 @@ class PostsController < ApplicationController
       @posts = @posts.order("created_at #{params[:sort]}")
     end
 
-    respond_to do |format|
-      format.html
-    end
+    #removed respond_to, it was only HTML and HTML is default
   end
 
   def show
